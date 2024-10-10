@@ -126,7 +126,11 @@ class FirstFragment : Fragment() , ItemAdapter.SendItem{
     // falta crear Funcion para pasar seleccion a siguiente fragmento
 
     override fun sendItem(item: Item?) {
-        TODO("Not yet implemented")
+        val bundle= Bundle()
+        bundle.putString("name",item!!.itemDescription)
+        bundle.putString("url", item.urlImage)
+        Navigation.findNavController(binding!!.getRoot())
+            .navigate(R.id.action_FirstFragment_to_SecondFragment)
     }
 
 }
